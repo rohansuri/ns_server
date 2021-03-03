@@ -84,7 +84,7 @@ def usage():
 def main():
     try:
         optlist, args = getopt.gnu_getopt(sys.argv[1:], "hn:p:",
-                                          ["help", "start-index=", "nodes=",
+                                          ["help", "start-index=", "nodes=", "dir=",
                                            "dont-rename",
                                            "static-cookie", "dont-start",
                                            "loglevel=",
@@ -124,6 +124,8 @@ def main():
                 print("Valid log levels are the following: %s" % ', '.join(LOGLEVELS))
                 sys.exit(1)
             params['loglevel'] = a
+        elif o == '--dir':
+            params['root_dir'] = a
         elif o == "--prepend-extras":
             params['prepend_extras'] = True
         elif o == "--pluggable-config":
